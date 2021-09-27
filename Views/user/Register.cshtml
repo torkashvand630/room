@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = Translate.t.front_login_Register;
+
+}
+
+<h2> @Translate.t.front_login_Register</h2>
+
+<div class="col-md-4">
+
+
+    <hr>
+    <div class="text-danger validation-summary-valid" data-valmsg-summary="true">
+        <p id="message"></p>
+    </div>
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="UserName">  @Translate.t.name</label>
+        <input class="form-control" type="text" data-val="true" data-val-required=" @Translate.t.front_create_emptyName" id="UserName" name="UserName" value="">
+        <span class="text-danger field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+    </div>
+    <div class="form-group">
+        <label for="Email"> @Translate.t.front_user_email</label>
+        @* <input class="form-control" type="email" data-val="true" data-val-email="آدرس ایمیل به درستی وارد نشده است" data-val-required="ایمیل را وارد کنید" id="Email" name="Email" value="">*@
+        <input class="form-control" type="email" data-val="true" data-val-email="@Translate.t.front_user_emailIncorrect" data-val-required="@Translate.t.front_user_emailEmpty" id="Email" name="Email" value="">
+        <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+    </div>
+    <div class="form-group">
+        <label for="password"> @Translate.t.password</label>
+        <input class="form-control" type="password" data-val="true" data-val-required="@Translate.t.front_user_passwordEmpty" id="password" name="password" value="">
+        <span class="text-danger field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+    </div>
+    <button onclick="regester()" class="btn btn-success"> @Translate.t.front_login_Register  </button>
+
+</div>
+<script>
+    function regester() {
+        var name = document.getElementById("UserName").value;
+        var email = document.getElementById("Email").value;
+        var pass = document.getElementById("password").value;
+
+        if (name == null || email == null || pass == null || pass == "" || name == "" || email == "") {
+            document.getElementById("message").innerText = "@Html.Raw(Translate.t.front_user_InputIncorrect)";
+            return;
+        }
+
+
+        $.ajax({
+            url: "/user/Register/",
+            type: "POST",
+            data:  '{  "name" :"'+ name+'",  "email" :"'+ email+'",  "pass" :"'+ pass+'" }' ,
+            dataType: "json",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data);
+                if (data.status == "ok") {
+                    document.getElementById("message").innerText = "@Html.Raw(Translate.t.front_user_RegisterSuccessfull)";
+                    setTimeout(function () { window.location = "/room/"; }, 1500);
+
+                }
+                else
+                    document.getElementById("message").innerText = data.message;
+            }
+            //,
+            // complete: function (data) {
+            //     console.log(data);
+            //     if (data.status == "ok") {
+            //         document.getElementById("message").innerText = "ثبت نام با موفقیت انجام شد";
+            //        // setTimeout(function () { window.location = "/room/"; }, 1500);
+
+            //     }
+            //     else
+            //         document.getElementById("message").innerText = data.message;
+
+            //}
+        });
+
+    }
+
+</script>

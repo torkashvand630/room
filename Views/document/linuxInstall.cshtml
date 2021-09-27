@@ -1,0 +1,123 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-bottom:30px;">
+    <h3>
+        The installation process is very easy and can be installed in less than 5 minutes
+
+    </h3>
+    <h4>
+        for install latest version go to github page https://github.com/sunmobiir/meetapp
+    </h4>
+    <a href="https://github.com/sunmobiir/meetapp" target="_blank" class="btn btn-success">github page  </a>
+</div>
+
+@if (appInfo.lang == "fa")
+{
+    ViewData["Title"] = "نصب روی لینوکس";
+    <h2>نصب روی لینوکس</h2>
+
+    <p style="text-align: right;"></p>
+    <h3 style="text-align: right;">نصب نرم افزار کلاس مجازی روی سرور</h3>
+    <p style="text-align: right;">این پلتفرم جهت ایجاد کلاس مجازی و وب کنفرانس ایجاد شده است و برای آموزشگاه ها و یا سایت های ارائه دهنده سرویس کلاس مجازی مناسب میباشد و کاملا رایگان است.</p>
+    <p style="text-align: right;">.فرایند نصب بسیار راحت بوده و در کمتر از 5 دقیقه نصب میشود</p>
+    <p style="text-align: right;"></p>
+    <h4 style="text-align: right;"><strong>نیازمندیها</strong></h4>
+    <p style="text-align: right;">یک ماشین مجازی به همراه ای پی ولید که روی ان لینوکس نصب شده است</p>
+    <p style="text-align: right;">یک دومین یا ساب دومین</p>
+    <p style="text-align: right;"></p>
+    <p style="text-align: right;">توجه کنید که نیاز به تهیه ssl ندارید . زیرا نرم افزار قادر است به شکل اتوماتیک برای دامین شما ssl معتبر و رایگان Letsencrypt تهیه میکند. همچنین شما میتوانید از ssl بدون اعتبار selfsigned استفاده کنید که توصیه نمیشود.</p>
+    <p style="text-align: right;">در اینجا آموزش برای لینوکس ابونتو آمده است اما برای سایر سیستم عامل های خانواده لینوکس با اندکی تفاوت قابل انجام است</p>
+    <p style="text-align: right;">با کاربری که دسترسی روت دارد به سرور لاگین کنید</p>
+    <h4 style="text-align: right;"><strong>نصب داکر</strong></h4>
+    <p style="text-align: right;">برای نصب ، به داکر نیاز دارید که با دستور زیر نصب میشود .</p>
+    <p style="text-align: right;"></p>
+<pre style="text-align: left;">sudo apt-get update </pre>
+<pre style="text-align: left;">sudo apt install docker.io </pre>
+<pre style="text-align: left;">sudo systemctl start docker </pre>
+    <p style="text-align: right;">ایجاد پوشه برای داده های نرم افزار</p>
+<pre style="text-align: left;">sudo mkdir /root/meetdata</pre>
+    <p style="text-align: right;"></p>
+    <h4 style="text-align: right;">نصب نرم افزار با استفاده از داکر</h4>
+    <p style="text-align: right;">دستور زیر را پس از اعمال تغییرات خواسته شده وارد کنید.</p>
+    <pre style="text-align: left;">docker run --net=host -e OS=linux -e lang=fa -e myDomian=example.com -e EMAIL=example@gmail.com -e CERTIFICATE=lets -e SECRET=12345 -v /root/meetdata:/root/linux12/wwwroot/files/ --name meetApp alit771/meetapp:b120</pre>
+    <p style="text-align: right;"><br />دامین و یا ساب دامین را جایگزین example.com کنید.<br />جهت استفاده از گواهینامه معتبر مقدار متغییر certificate را lets وارد کنید و برای گواهینامه selfsigned مقدار certificate را self وارد کنید.<br />مقدار secret را تغییر دهید و به دلخواه انتخاب کنید . این متغییر جهت کار با api کاربرد دارد.<br />داده های برنامه در پوشه meetdata نگه داری میشود.<br />ایمیل معتبر وارد کنید .</p>
+    <p style="text-align: right;"></p>
+    <p style="text-align: right;">با اجرای دستور بالا ، داکر اجرا شده و نرم افزار را دانلود و نصب میکند همچنین ssl مورد نیاز را تهیه میکند.</p>
+    <p style="text-align: right;">نرم افزار نصب شده است مرورگر کروم را باز کنید و دامین را وارد کنید.</p>
+    <p style="text-align: right;"></p>
+    <p style="text-align: right;">توجه کنبد که دستور بالا را فقط یک بار باید وارد کنید و پس از آن در صورت نیاز با دستور زیر میتوانید کانتینر را متوقف کنید.</p>
+<pre style="text-align: left;">docker stop meetApp</pre>
+    <p style="text-align: right;">اجرای مجدد کانتینر</p>
+<pre style="text-align: left;">docker start meetApp </pre>
+    <p></p>
+    <p style="text-align: right;">جهت توسعه این نرم افزار از پکیج های متن باز و رایگان استفاده شده است که شامل موارد زیر میباشند.</p>
+    <p style="text-align: left;"><br />webrtc for audio and video conference<br />intel&reg; collaboration suite for webrtc<br />BoringSSL (fork of OpenSSL) by google for ssl validation<br />letsencrypt <br />asp.net core<br />bootstrap for front end design<br />coturn server for nat traversal<br />OpenResty (nginx base webserver) for reverse proxy<br />ffmpeg <br />libwebsocket for websocket communication<br />docker for container management</p>
+    <p></p>
+
+
+}
+else
+{
+    ViewData["Title"] = "Install on Linux";
+    <h2>Install on Linux</h2>
+
+    <p style="text-align: left;"></p>
+    <h3 style="text-align: left;">Install virtual classroom software on linux server</h3>
+    <p style="text-align: left;">@*این پلتفرم جهت ایجاد کلاس مجازی و وب کنفرانس ایجاد شده است و برای آموزشگاه ها و یا سایت های ارائه دهنده سرویس کلاس مجازی مناسب میباشد و کاملا رایگان است.*@</p>
+    <p style="text-align: left;">The installation process is very easy and can be installed in less than 5 minutes</p>
+    <p style="text-align: left;"></p>
+    <h4 style="text-align: left;"><strong>Requirements</strong></h4>
+    <p style="text-align: left;">- ip</p>
+    <p style="text-align: left;">- domain or subdomain</p>
+    <p style="text-align: left;"></p>
+    <p style="text-align: left;">@*توجه کنید که نیاز به تهیه ssl ندارید . زیرا نرم افزار قادر است به شکل اتوماتیک برای دامین شما ssl معتبر و رایگان Letsencrypt تهیه میکند. همچنین شما میتوانید از ssl بدون اعتبار selfsigned استفاده کنید که توصیه نمیشود.*@</p>
+    <p style="text-align: left;">@*در اینجا آموزش برای لینوکس ابونتو آمده است اما برای سایر سیستم عامل های خانواده لینوکس با اندکی تفاوت قابل انجام است*@</p>
+    <p style="text-align: left;">Log in to the server with   root access user</p>
+    <h4 style="text-align: left;"><strong>Install Docker</strong></h4>
+    <p style="text-align: left;">@*برای نصب ، به داکر نیاز دارید که با دستور زیر نصب میشود .*@</p>
+    <p style="text-align: left;"></p>
+<pre style="text-align: left;">sudo apt-get update </pre>
+<pre style="text-align: left;">sudo apt install docker.io </pre>
+<pre style="text-align: left;">sudo systemctl start docker </pre>
+    <p style="text-align: left;">Create folders for software data</p>
+<pre style="text-align: left;">sudo mkdir /root/meetdata</pre>
+    <p style="text-align: left;"></p>
+    <h4 style="text-align: left;">Install the software using Docker</h4>
+    <p style="text-align: left;">Enter the following command after making the requested changes.</p>
+    <pre style="text-align: left;">docker run --net=host -e OS=linux -e lang=en -e myDomian=example.com -e EMAIL=example@gmail.com -e CERTIFICATE=lets -e SECRET=12345 -v /root/meetdata:/root/linux12/wwwroot/files/ --name meetApp alit771/meetapp:b120</pre>
+    <p style="text-align: left;">
+        <br />Replace example.com with a domain or subdomain.<br />
+
+        To use a valid certificate, enter the value of the certificate variable 'lets', and for a selfsigned certificate, enter the value of the certificate 'self'.
+
+
+
+        <br />Change the value of secret and select as desired. This variable is used to work with api.<br />
+        Application data is stored in the meetdata folder.<br />Enter a valid email .
+
+    </p>
+    <p style="text-align: left;"></p>
+    <p style="text-align: left;">By executing the above command, Docker will run and download and install the software, as well as provide the required ssl.</p>
+    <p style="text-align: left;">The software is installed Open the Chrome browser and enter the domain.</p>
+    <p style="text-align: left;"></p>
+    <p style="text-align: left;">Note: you only need to enter the above command once and then you can stop the container with the following command if needed.</p>
+<pre style="text-align: left;">docker stop meetApp</pre>
+    <p style="text-align: left;">Re-run the container</p>
+<pre style="text-align: left;">docker start meetApp </pre>
+    <p></p>
+    <p style="text-align: left;">To develop this software, free and open source packages have been used, which include the following:.</p>
+    <p style="text-align: left;"><br />webrtc for audio and video conference<br />intel&reg; collaboration suite for webrtc<br />BoringSSL (fork of OpenSSL) by google for ssl validation<br />letsencrypt <br />asp.net core<br />bootstrap for front end design<br />coturn server for nat traversal<br />OpenResty (nginx base webserver) for reverse proxy<br />ffmpeg <br />libwebsocket for websocket communication<br />docker for container management</p>
+    <p></p>
+}
+<p></p>
+<p></p>
+<p style="text-align: left;"></p>
+<p style="text-align: left;"></p>
+<p style="text-align: right;"></p>
+<p style="text-align: right;"></p>
+<p style="text-align: right;"></p>

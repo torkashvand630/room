@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewData["Title"] = "نصب روی ویندوز";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-bottom:30px;">
+    <h3>
+        The installation process is very easy and can be installed in less than 5 minutes
+
+    </h3>
+    <h4>
+        for install latest version go to github page https://github.com/sunmobiir/meetapp
+    </h4>
+    <a href="https://github.com/sunmobiir/meetapp" target="_blank" class="btn btn-success">github page  </a>
+</div>
+
+@if (appInfo.lang == "fa")
+{
+    ViewData["Title"] = "نصب روی ویندوز";
+    <h2>نصب روی ویندوز</h2>
+
+    <p style="text-align: right;">&nbsp;</p>
+    <h3 style="text-align: right;">نصب نرم افزار کلاس مجازی&nbsp; روی سرور ویندوز</h3>
+    <p style="text-align: right;">این پلتفرم جهت ایجاد کلاس مجازی و وب کنفرانس ایجاد شده است&nbsp; و&nbsp; برای آموزشگاه ها و یا سایت های ارائه دهنده سرویس کلاس مجازی مناسب میباشد&nbsp; و کاملا رایگان است.</p>
+    <p style="text-align: right;">.فرایند نصب بسیار راحت بوده و در کمتر از 5 دقیقه نصب میشود&nbsp;</p>
+    <p style="text-align: right;">&nbsp;</p>
+    <h4 style="text-align: right;"><strong>نیازمندیها&nbsp;</strong></h4>
+    <p style="text-align: right;">یک ماشین مجازی به همراه ای پی ولید&nbsp; که روی ان ویندوز سرور 2016 یا 2019 نصب شده است</p>
+    <p style="text-align: right;">یک دومین یا ساب دومین</p>
+    <p style="text-align: right;">&nbsp;</p>
+    <p style="text-align: right;">توجه کنید که نیاز به تهیه ssl ندارید . زیرا نرم افزار قادر است به شکل اتوماتیک برای دامین شما ssl معتبر و رایگان Letsencrypt تهیه میکند. همچنین شما میتوانید از ssl بدون اعتبار selfsigned استفاده کنید که توصیه نمیشود.</p>
+    <h4 style="text-align: right;">مراحل نصب</h4>
+    <p style="text-align: right;">داکر دسکتاپ را دانلود و نصب&nbsp; کنید. در صورتی که از سرور داخل ایران استفاده میکنید برای دانلود داکر دسکتاپ روی لینک زیر کلیک کنید&nbsp;</p>
+
+    <div style="direction:ltr;"><a target="_blank" href="https://dl.salampnu.com/docker/Docker%20Desktop%20Installer.exe" class="btn btn-success">دانلود داکر دسکتاپ</a></div>
+
+    <p style="text-align: right;">فایر وال را موقتا غیر فعال کنید&nbsp;</p>
+    <p style="text-align: right;">iis را غیر فعال کنید تا پورت 80 و 443 آزاد شود</p>
+    <p style="text-align: right;">یک پوشه در درایو سی به نام meetapp ایجاد کنید. این پوشه محل نگه داری داده های نرم افزار میباشد</p>
+    <p style="text-align: right;">داخل پوشه meetapp یک فایل متنی به نام&nbsp;docker-compose.yml ایجاد کنید و محتوای زیر را داخل آن کپی کنید</p>
+    <div style="direction: ltr;">
+        <div>version:&nbsp;'3.1'</div>
+        <br />
+        <div>services:</div>
+        <br />
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;meetapp:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image:&nbsp;alit771/meetapp:b120</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:&nbsp;on-failure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumes:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- C:\meetdata:/root/linux12/wwwroot/files/&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;environment:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;myDomian=example.com</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;EMAIL=example@gmail.com</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;OS=windows</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;lang=fa</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;CERTIFICATE=lets</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;SECRET=12345</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ports:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;80:80</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;443:443</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;3478:3478</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;3478:3478/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5349:5349</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5349:5349/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5000:5000</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5001:5001</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8088:8088</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8089:8089</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;7088:7088</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8188:8188</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8888:8888</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8989:8989</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;49152-49200:49152-49200</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;49152-49200:49152-49200/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;10000-10200:10000-10200/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div style="text-align: right;"><span style="text-align: right;">فایل را با یک ویرایش گر مثل نوت پد باز کنید و تغییرات زیر را انجام دهید&nbsp;</span></div>
+    </div>
+    <p style="text-align: right;">دامین و یا ساب دامین را جایگزین example.com کنید.<br />جهت استفاده از گواهینامه معتبر مقدار متغییر certificate را lets وارد کنید و برای گواهینامه selfsigned مقدار certificate را self وارد کنید.<br />مقدار secret را تغییر دهید و به دلخواه انتخاب کنید . این متغییر جهت کار با api کاربرد دارد.<br />داده های برنامه در پوشه meetdata نگه داری میشود.</p>
+    <p style="text-align: right;">ایمیل معتبر وارد کنید .</p>
+    <p style="text-align: right;">فایل را ذخیره کنید</p>
+    <p style="text-align: right;">&nbsp;</p>
+    <h4 style="text-align: right;">اجرای نرم افزار&nbsp;&nbsp;</h4>
+    <p style="text-align: right;">پاور شل را&nbsp; داخل پوش meetapp&nbsp; باز کنید&nbsp; دستور زیر را وارد کنید&nbsp;<br /><br /></p>
+<pre style="text-align: left;">docker-compose up</pre>
+    <p style="text-align: right;">&nbsp;</p>
+    <p style="text-align: right;">با اجرای دستور بالا ، داکر اجرا شده و نرم افزار را دانلود و نصب میکند همچنین ssl مورد نیاز را تهیه میکند.</p>
+    <p style="text-align: right;">نرم افزار نصب شده است مرورگر کروم را باز کنید و دامین را وارد کنید.</p>
+    <p style="text-align: right;">&nbsp;جهت توقف نرم افزار دستور زیر را وارد کنید&nbsp;</p>
+<pre style="text-align: left;">docker-compose down</pre>
+    <p>&nbsp;</p>
+    <p style="text-align: right;">جهت توسعه این نرم افزار از پکیج های متن باز و رایگان استفاده شده است که شامل موارد زیر میباشند.</p>
+    <p style="text-align: left;"><br />webrtc for audio and video conference<br />intel&reg; collaboration suite for webrtc<br />BoringSSL (fork of OpenSSL) by google for ssl validation<br />letsencrypt <br />asp.net core<br />bootstrap for front end design<br />coturn server for nat traversal<br />OpenResty (nginx base webserver) for reverse proxy<br />ffmpeg <br />libwebsocket for websocket communication<br />docker for container management</p>
+
+}
+else
+{
+    ViewData["Title"] = "Install on Windows";
+    <h2>Install on Windows</h2>
+
+    <p style="text-align: left;"></p>
+    <h3 style="text-align: left;">Install virtual classroom software on windows server</h3>
+    <p style="text-align: left;">@*این پلتفرم جهت ایجاد کلاس مجازی و وب کنفرانس ایجاد شده است و برای آموزشگاه ها و یا سایت های ارائه دهنده سرویس کلاس مجازی مناسب میباشد و کاملا رایگان است.*@</p>
+    <p style="text-align: left;">The installation process is very easy and can be installed in less than 5 minutes</p>
+    <p style="text-align: left;"></p>
+    <h4 style="text-align: left;"><strong>Requirements</strong></h4>
+    <p style="text-align: left;">- ip</p>
+    <p style="text-align: left;">- domain or subdomain</p>
+    <p style="text-align: left;"></p>
+    <p style="text-align: left;">@*توجه کنید که نیاز به تهیه ssl ندارید . زیرا نرم افزار قادر است به شکل اتوماتیک برای دامین شما ssl معتبر و رایگان Letsencrypt تهیه میکند. همچنین شما میتوانید از ssl بدون اعتبار selfsigned استفاده کنید که توصیه نمیشود.*@</p>
+    <h4 style="text-align: left;">@*مراحل نصب*@</h4>
+    <p style="text-align: left;">Download and install Docker Desktop. </p>
+
+
+
+    <p style="text-align: left;">Temporarily disable firewall</p>
+    <p style="text-align: left;">Disable iis to release   80 and 443 ports</p>
+    <p style="text-align: left;">Create a folder on drive C called meetapp. This folder is where the software data is stored</p>
+    <p style="text-align: left;"> Create a text file called docker-compose.yml in the meetapp folder and copy the following content</p>
+    <div style="direction: ltr;">
+        <div>version:'3.1'</div>
+        <br />
+        <div>services:</div>
+        <br />
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;meetapp:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image:&nbsp;alit771/meetapp:b120</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;restart:&nbsp;on-failure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumes:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- C:\meetdata:/root/linux12/wwwroot/files/&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;environment:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;myDomian=example.com</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;EMAIL=example@gmail.com</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;OS=windows</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;lang=en</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;CERTIFICATE=lets</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;SECRET=12345</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ports:</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;80:80</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;443:443</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;3478:3478</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;3478:3478/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5349:5349</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5349:5349/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5000:5000</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;5001:5001</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8088:8088</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8089:8089</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;7088:7088</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8188:8188</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8888:8888</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;8989:8989</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;49152-49200:49152-49200</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;49152-49200:49152-49200/udp</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;10000-10200:10000-10200/udp</div>
+        <div></div>
+        <div style="text-align: left;"><span style="text-align: left;">Open the file with an editor such as Notepad and make the following changes</span></div>
+    </div>
+    <p style="text-align: left;">
+        <br />Replace example.com with a domain or subdomain.<br />
+
+        To use a valid certificate, enter the value of the certificate variable 'lets', and for a selfsigned certificate, enter the value of the certificate 'self'.
+
+
+
+        <br />Change the value of secret and select as desired. This variable is used to work with api.<br />
+        Application data is stored in the meetdata folder.<br />Enter a valid email .
+
+    </p>
+
+
+    <p style="text-align: left;">save file</p>
+    <p style="text-align: left;"></p>
+    <h4 style="text-align: left;">Run the software</h4>
+    <p style="text-align: left;">Open the power shell inside the meetapp folder. Enter the following command<br /><br /></p>
+<pre style="text-align: left;">docker-compose up</pre>
+    <p style="text-align: left;"></p>
+    <p style="text-align: left;">By executing the above command, Docker will run and download and install the software, as well as provide the required ssl.</p>
+    <p style="text-align: left;">The software is installed Open the Chrome browser and enter the domain.</p>
+    <p style="text-align: left;">Enter the following command to stop the software</p>
+<pre style="text-align: left;">docker-compose down</pre>
+    <p></p>
+    <p style="text-align: left;">To develop this software, free and open source packages have been used, which include the following:.</p>
+    <p style="text-align: left;"><br />webrtc for audio and video conference<br />intel&reg; collaboration suite for webrtc<br />BoringSSL (fork of OpenSSL) by google for ssl validation<br />letsencrypt <br />asp.net core<br />bootstrap for front end design<br />coturn server for nat traversal<br />OpenResty (nginx base webserver) for reverse proxy<br />ffmpeg <br />libwebsocket for websocket communication<br />docker for container management</p>
+
+}
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: right;">&nbsp;</p>
+<p style="text-align: right;">&nbsp;</p>
+<p style="text-align: right;">&nbsp;</p>

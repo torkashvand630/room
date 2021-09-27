@@ -1,0 +1,65 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/pRoom",
+      "sslPort": 0,
+      "environmentVariables": {
+        "isHost": "0",
+        "mediaServer": "t5.salampnu.com",
+        "env": "iis",
+        "mediaServerPass": "aaaaa",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+
+    },
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58877",
+      "sslPort": 44328
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "pRoom": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:5003/",
+      "environmentVariables": {
+         
+        "mediaServer": "t5.salampnu.com",
+        "env": "proom",
+        "mediaServerPass": "aaaaa",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5003;http://localhost:5002"
+    },
+    "newProfile1": {
+      "commandName": "Executable",
+      "environmentVariables": {
+        "mediaServer": "https://demos.openvidu.io"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true
+    },
+    "newProfile2": {
+      "commandName": "IIS",
+      "environmentVariables": {
+        "mediaServer": "https://demos.openvidu.io",
+        "env": "iis",
+        "mediaServerPass": "MY_SECRET"
+      }
+    }
+  }
+}

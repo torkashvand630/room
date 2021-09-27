@@ -1,0 +1,64 @@
+﻿@model pRoom.meetVM
+<div class="modal" id="deviceJanusModal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 id="deviceModalTitle" class="modal-title">@Model.translate.device_title</h4>
+                <button type="button" onclick="device.save()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @*<p id="selectAudioInputText">
+                    @Model.translate.device_selectAudioInputTex
+                </p>
+                <p id="selectVideoInputText">
+                    @Model.translate.device_selectVideoInputText
+                </p>*@
+                <div id="audioSourceSelect" class="select" style="margin-bottom:15px;">
+                    <label for="audioSource">@Model.translate.device_audioSourceLable</label><select style="max-width:300px;" id="audioSource"></select>
+                </div> 
+                <div id="videoSourceSelect" class="select">
+                    <label for="videoSource">@Model.translate.device_videoSourceLable</label><select style="max-width:300px;" id="videoSource"></select>
+                </div>
+
+                @*<video style="width:250px;max-height:250px;" id="videoSelectElement" playsinline autoplay controls></video>*@
+                @*<audio   id="audioSelectElement" playsinline autoplay controls></audio>*@
+
+            </div>
+
+            <!-- Modal footer -->
+            <div id="iconDevicelPanel" class="modal-footer">
+                @*<button type="button" class="btn btn-danger" onclick="device.close()" data-dismiss="modal" >Close</button>*@
+                <button type="button" class="btn btn-success" onclick="device.save()" data-dismiss="modal">@Model.translate.select</button>
+                @*<button type="button" class="btn btn-danger" onclick="device.close()" data-dismiss="modal">انصراف</button>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal" id="deviceUnpublisherModal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 id="deviceModalTitle" class="modal-title">  @Model.meetName  </h4>
+            </div>
+            <div class="modal-body">
+
+                <p>@Model.translate.EnterMeetMessage</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-danger" onclick="device.close()" data-dismiss="modal" >Close</button>*@
+                <button type="button" class="btn btn-success" onclick="deviceUnpublisher.save()" data-dismiss="modal">@Model.translate.EnterMeet</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>

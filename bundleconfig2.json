@@ -1,0 +1,72 @@
+[
+  {
+    "outputFileName": "wwwroot/newJS/bundle.js",
+    "inputFiles": [
+      "wwwroot/board/js/jquery-3.2.1.min.js",
+      "wwwroot/js/popper.min.1.16.0.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap-notify.min.js",
+      "wwwroot/board/js/socketio2.0.4.min.js",
+      "wwwroot/board/js/jqColorPicker.min.js",
+      "wwwroot/board/js/main.js",
+      "wwwroot/board/js/whiteboard.js",
+      "wwwroot/css/ElementQueries.js", 
+      "wwwroot/css/ResizeSensor.js",
+      "wwwroot/js/pako.min.js",
+      "wwwroot/vidu/app.js",
+      "wwwroot/newJS/_board.js",
+      "wwwroot/newJS/_chat.js",
+      "wwwroot/newJS/_deviceJanust.js",
+      "wwwroot/newJS/_endMeet.js",
+      "wwwroot/newJS/_FilePanel.js",
+      "wwwroot/newJS/_toolbar.js",
+      "wwwroot/newJS/_vidu.js",
+      "wwwroot/newJS/layout.js",
+      "wwwroot/newJS/quiz.js",       
+      "wwwroot/newJS/centerPanelControler.js",
+      "wwwroot/newJS/screenShareControler.js",     
+      "wwwroot/vidu/webrtc/Tvideoroomtest.js",
+      "wwwroot/vidu/webrtc/screensharingtest.js",
+      "wwwroot/newJS/t.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/newJS/bundle2.js",
+    "inputFiles": [
+      "wwwroot/newJS/bundle.min.js",
+      "wwwroot/vidu/webrtc/client.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "wwwroot//css/all.min.css",
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "wwwroot/board/css/main.css",
+      "wwwroot/board/css/jquery-ui.min.css",
+      "wwwroot/css/per.css",
+      "wwwroot/vidu/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/vidu/webrtc/janus.min.js",
+    "inputFiles": [
+      "wwwroot/vidu/webrtc/janus.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/board/js/fontawesome.min.min.js",
+    "inputFiles": [
+      "wwwroot/board/js/fontawesome.min.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/video.min.js",
+    "inputFiles": [
+      "wwwroot/js/video.js"
+    ]
+  }
+]

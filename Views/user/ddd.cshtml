@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript" src="http://95.216.243.8:83/web-apps/apps/api/documents/api.js"></script>
+   
+</head>
+<body>
+    <div id="placeholder">ddddddddd</div>
+    <script>
+        console.log("s");
+        new DocsAPI.DocEditor("placeholder", {
+            "document": {
+                "fileType": "docx",
+                "key": "61f9483878ec",
+                "title": "1.docx",
+                "url": "http://95.216.243.8/example/download?fileName=sample.docx"
+            },
+            "documentType": "word",
+            "editorConfig": {
+                "mode": "view"
+            }
+        });
+    </script>
+</body>
+</html>

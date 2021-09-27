@@ -1,0 +1,78 @@
+[
+  {
+    "outputFileName": "wwwroot/newJS/bundle.js",
+    "inputFiles": [
+      "wwwroot/board/js/jquery-3.2.1.min.js",
+      "wwwroot/board/js/jquery-ui.min.js",
+      "wwwroot/js/popper.min.1.16.0.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "wwwroot/board/js/fontawseome5.8.1.min.js",
+      "wwwroot/board/js/socketio2.0.4.min.js",
+      "wwwroot/board/js/jqColorPicker.min.js",
+      "wwwroot/board/js/main.js",
+      "wwwroot/board/js/whiteboard.js",
+      "wwwroot/css/ElementQueries.js",
+      "wwwroot/css/ResizeSensor.js",
+      "wwwroot/js/pako.min.js",
+      "wwwroot/vidu/adapter.js",
+      "wwwroot/vidu/app.js",
+      "wwwroot/vidu/webrtc/janus.js",
+      "wwwroot/vidu/webrtc/Tvideoroomtest.js",
+      "wwwroot/vidu/webrtc/screensharingtest.js",
+      "wwwroot/newJS/_board.js",
+      "wwwroot/newJS/_chat.js",
+      "wwwroot/newJS/_device.js",
+      "wwwroot/newJS/_endMeet.js",
+      "wwwroot/newJS/_FilePanel.js",
+      "wwwroot/newJS/_toolbar.js",
+      "wwwroot/newJS/_vidu.js",
+      "wwwroot/newJS/layout.js",
+      "wwwroot/newJS/t.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/newJS/bundle.min2.js",
+    "inputFiles": [
+      "wwwroot/newJS/bundle.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot//css/all.min.css",
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "wwwroot/board/css/main.css",
+      "wwwroot/board/css/jquery-ui.min.css",
+      "wwwroot/css/per.css",
+      "wwwroot/board/css/fontawesome-all.min.css",
+      "wwwroot/vidu/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/vidu/webrtc/janus.min.js",
+    "inputFiles": [
+      "wwwroot/vidu/webrtc/janus.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/vidu/webrtc/screensharingtest.min.js",
+    "inputFiles": [
+      "wwwroot/vidu/webrtc/screensharingtest.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/vidu/webrtc/Tvideoroomtest.min.js",
+    "inputFiles": [
+      "wwwroot/vidu/webrtc/Tvideoroomtest.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/prevJS/bundle.min2.min.js",
+    "inputFiles": [
+      "wwwroot/prevJS/bundle.min2.js"
+    ]
+  }
+]
