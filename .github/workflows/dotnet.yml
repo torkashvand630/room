@@ -24,8 +24,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore     
+      run: dotnet publish -r linux-x64 --self-contained false     
     - uses: actions/upload-artifact@main
       with:
-        name: bb
+        name: bb2
         path: bin/      
